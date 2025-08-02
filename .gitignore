@@ -34,8 +34,7 @@ build/
 ### VS Code ###
 .vscode/
 
-### Mac OS ###
 .DS_Store
-pom.xml
 .idea/
 test/
+/target/
