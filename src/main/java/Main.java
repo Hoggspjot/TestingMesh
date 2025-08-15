@@ -1,46 +1,33 @@
+import java.io.*;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Lena").append("\n");
+        sb.append("Olya").append("\n");
+        sb.append("Vika").append("\n");
+        String data = sb.toString();
+        System.out.println(data);
 
-        Cat cat = new Cat("Васька");
-        CatWrapper wrapper = new CatWrapper(cat);
-        System.out.println(cat.getName());
-        System.out.println(wrapper.getName());
+        InputStream is = new ByteArrayInputStream(data.getBytes());
+        System.setIn(is);
+
+        readAndPrintLine();
+
 
     }
-}
+    public static void readAndPrintLine() throws IOException {
 
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader reader = new BufferedReader(isr);
 
-class Cat {
-    private String name;
-
-    public Cat(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}
-
-
-class CatWrapper extends Cat {
-    private Cat original;
-
-    public CatWrapper(Cat cat) {
-        super(cat.getName());
-        this.original = cat;
-    }
-
-    public String getName() {
-        return "Кот по имени " + original.getName();
-    }
-
-    public void setName(String name) {
-        original.setName(name);
+        while (true) {
+            String line = reader.readLine();
+            if(line == null) break;
+            System.out.println(line);
+        }
+        reader.close();
+        isr.close();
     }
 
 }
