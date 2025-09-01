@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -55,7 +54,6 @@ public class Test {
 
 //        Stream.iterate(new int[]{0,1}, t -> new int[]{t[1],t[0]+t[1]})
 //                .mapToInt(t ->t[0]);
-
 
 
 
